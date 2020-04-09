@@ -30,7 +30,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def update_graph(self):
 
-
         self.implicit.R = self.ui.doubleSpinBoxR.value()
         self.implicit.k = self.ui.doubleSpinBoxk.value()
         self.implicit.c = self.ui.doubleSpinBoxC.value()
@@ -62,6 +61,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.graphicsView.clear()
         self.ui.graphicsView.plotItem.plot(analX, analY, pen=penana)
         self.ui.graphicsView.plotItem.plot(implX, impY, pen=penimp)
+        self.ui.resultanal.setText("―")
+        self.ui.resultch.setText("―")
+        self.ui.resultanal.setStyleSheet("color: rgb(255, 0, 0);")
+        self.ui.resultch.setStyleSheet("color: rgb(0, 0, 255);")
 
 
 if __name__ == '__main__':
