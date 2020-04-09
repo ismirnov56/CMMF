@@ -8,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from pyqtgraph import PlotWidget
 
 
 class Ui_MainWindow(object):
@@ -135,9 +136,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addLayout(self.verticalLayout)
         self.graphicsView = PlotWidget(self.layoutWidget)
         self.graphicsView.setObjectName("graphicsView")
+        self.graphicsView.setBackground('w')
         self.horizontalLayout.addWidget(self.graphicsView)
         self.graphicsView.plotItem.setLabel(axis='left', text="u(θ,t)")
-        self.graphicsView.plotItem.showGrid(x=True, y=True)
+        self.graphicsView.plotItem.showGrid(x=True, y=True, alpha=1.0)
         self.graphicsView.plotItem.setLabel(axis='bottom', text="θ")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -163,4 +165,4 @@ class Ui_MainWindow(object):
         self.label_7.setText(_translate("MainWindow", "Численое решение"))
         self.label_8.setText(_translate("MainWindow", "Аналитическое решение"))
         self.pushButton.setText(_translate("MainWindow", "Построить график"))
-from pyqtgraph import PlotWidget
+
